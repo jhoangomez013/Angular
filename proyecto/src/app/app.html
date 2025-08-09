@@ -1,0 +1,22 @@
+<h1>{{ saludo }}</h1>
+<app-practica-componente></app-practica-componente>
+
+<div [ngClass]="{'activo': esActivo, 'error': tieneError}"></div>
+
+<p [ngStyle]="{'color': color, 'font-size': fontSize}"></p>
+
+<input [(ngModel)]="color" placeholder="Enter color"/>
+
+<p *ngIf="usuarioActivo">Bienvenido</p>
+
+<ul>
+  <li *ngFor="let item of [1,2,3]">
+    {{ item }}
+  </li>
+</ul>
+
+<div [ngSwitch]="usuarioActivo">
+  <p *ngSwitchCase="true">Usuario activo</p>
+  <p *ngSwitchCase="false">Usuario inactivo</p>
+  <p *ngSwitchDefault>Usuario desconocido</p>
+</div>

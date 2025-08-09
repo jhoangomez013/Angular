@@ -1,0 +1,34 @@
+<h1>{{titulo | uppercase}}</h1>
+<p>Fecha actual: {{ fechaActual | date:'dd/MM/yyyy' }}</p>
+
+<br/>
+<ul><li><h2>Ejercicios 2 y 3</h2></li>
+  <li><p>{{Ejercicio2}}</p></li>
+    <li><p>{{Ejercicio3}}</p></li>
+</ul>
+
+<button  (click)="mostrarOcultarLista()" type="submit" class="boton-mostrar-ocultar">{{ mostrarListado ? 'Ocultar' : 'Mostrar' }} - listado</button>
+<br >
+@if (mostrarListado) {
+@for (item of items; track $index) {
+
+  <app-carro-card [Carro]="item"></app-carro-card>
+
+}
+}
+ <h3>4. Agregar nuevo carro a la lista</h3>
+
+
+<form (ngSubmit)="agregarCarro()">
+  <label for="marca">Marca: </label>
+  <input type="text" id="marca" [(ngModel)]="nuevoCarro.marca" name="marca" required>
+ <br />
+ <label form="referencia">Referencia: </label>
+  <input type="text" id="referencia" [(ngModel)]="nuevoCarro.referencia" name="referencia" required>
+ <br />
+ <label for="modelo">Modelo: </label>
+  <input type="number" id="modelo" [(ngModel)]="nuevoCarro.modelo" placeholder="Ingrese el modelo" name="modelo" required>
+ <br />
+  <button type="submit">Agregar Carro</button>
+
+</form>
