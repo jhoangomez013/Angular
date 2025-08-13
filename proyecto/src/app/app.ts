@@ -6,7 +6,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [PracticaComponente, CommonModule, FormsModule],
+  imports: [FormsModule, PracticaComponente, CommonModule, FormsModule],
   templateUrl: './app.html',
   styleUrls: ['./app.css']
 })
@@ -19,4 +19,6 @@ export class App {
   fontSize: string = '20px';
 
   usuarioActivo: boolean = true;
+
+colorFavorito='';
 }
