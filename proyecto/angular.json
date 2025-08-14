@@ -28,7 +28,7 @@
               "src/styles.css"
             ],
 
-            "baseHref": "/Angular/proyecto/"
+            "deployUrl": "/Angular/proyecto/"
           },
           "configurations": {
             "production": {
