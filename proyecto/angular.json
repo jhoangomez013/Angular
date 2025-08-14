@@ -27,7 +27,7 @@
             "styles": [
               "src/styles.css"
             ],
-
+"baseHref": "/Angular/proyecto/"
             
           },
           "configurations": {
