@@ -1,27 +1,40 @@
 <form [formGroup]="perfil" (ngSubmit)="enviar()">
+
   <label for="nombre">Nombre:</label>
   <input type="text" formControlName="nombre">
-  <div *ngIf="perfil.get('nombre')?.invalid && perfil.get('nombre')?.touched">
-    El nombre es requerido.
-  </div>
-    
+  @if (perfil.get('nombre')?.invalid && perfil.get('nombre')?.touched) {
+    @if (nombre?.errors?.['required']) {El nombre es obligatorio.}
+    @if (nombre?.errors?.['minlength']) {El nombre debe tener al menos 2 caracteres.}
+  }
+  
   <label for="apellido">Apellido:</label>
     <input type="text" formControlName="apellido">
-    <div *ngIf="perfil.get('apellido')?.invalid && perfil.get('apellido')?.touched">
-      El apellido es requerido.     
-    </div>
+@if (apellido?.invalid && apellido?.touched) {
+  @if (apellido?.errors?.['required']) {El apellido es obligatorio.}
+  @if (apellido?.errors?.['minlength']) {El apellido debe tener al menos 2 caracteres.}
+}
+
   
     <label for="email">Email:</label>         
     <input type="email" formControlName="email">
-    <div *ngIf="perfil.get('email')?.invalid && perfil.get('email')?.touched">
-      El email es requerido y debe ser válido.
-    </div>
+    @if (email?.invalid && email?.touched) {
+      @if (email?.errors?.['required']) {El email es obligatorio.}
+      @if (email?.errors?.['email']) {El email debe ser válido.}
+    }
    
     <label for="password">password:</label>
     <input type="password" formControlName="password">
-    <div *ngIf="perfil.get('password')?.invalid && perfil.get('password')?.touched">
-      El password es requerido y debe tener al menos 10 dígitos.
-    </div>
+    @if (password?.invalid && password?.touched) {
+      @if (password?.errors?.['required']) {La contraseña es obligatoria.}
+      @if (password?.errors?.['minlength']) {La contraseña debe tener al menos 6 caracteres.}
+    }
 
-<button type="submit">Enviar</button>
+
+  <div *ngIf="perfil.invalid && perfil.touched" class="alert alert-danger">
+  Por favor, complete todos los campos requeridos correctamente.
+</div>
+
+    <button type="submit" [disabled]="perfil.invalid">Enviar</button>
+
+
 </form>

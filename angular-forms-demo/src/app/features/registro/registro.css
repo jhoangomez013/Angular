@@ -11,6 +11,8 @@ label {
   display: block;
   margin-bottom: 10px;
   font-weight: bold;
+   font-family: "Century Gothic";
+   font-size: 25px;
 }
 
 input[type="text"], input[type="email"], input[type="password"] {
@@ -44,6 +46,9 @@ button[type="submit"] {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-family: "Century Gothic";
+  font-size: 20px;
+  font-weight: bold;
 }
 
 button[type="submit"]:hover {
