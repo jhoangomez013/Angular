@@ -5,11 +5,14 @@ import { FormsModule } from '@angular/forms';
 import { of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterModule, Router,RouterOutlet } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [FormsModule, PracticaComponente, CommonModule, HttpClientModule],
+  imports: [ RouterModule, RouterOutlet, FormsModule, PracticaComponente, CommonModule, HttpClientModule],
   templateUrl: './app.html',
   styleUrls: ['./app.css']
 })
@@ -27,7 +30,7 @@ export class App implements OnInit {
 
   usuarios: any[] = [];
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     const miObservable = of('Hola', 'Mundo', ':');
     miObservable.subscribe(valor => {
       console.log(valor);
@@ -41,4 +44,12 @@ export class App implements OnInit {
         console.log(this.usuarios);
       });
   }
+
+  navigateToAbout() {
+    this.router.navigate(['/about']);
+  }
+  navigateToHome() {
+    this.router.navigate(['/home']);
+  } 
+
 }

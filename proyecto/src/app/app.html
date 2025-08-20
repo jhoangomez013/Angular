@@ -28,4 +28,17 @@
     {{ usuario.name }}</li>
 </ul>
 
+<hr>
+
+<nav>
+  <ul>
+    <li><a routerLink="/home">Home</a></li>
+    <li><a routerLink="/about">About</a></li>
+
+    <button (click)="navigateToHome()">Go to Home</button>
+    <button (click)="navigateToAbout()">Go to About</button>
+
+  </ul>
+</nav>
+<router-outlet></router-outlet>
 
