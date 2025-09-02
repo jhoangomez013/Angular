@@ -6,13 +6,14 @@ import { of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Router,RouterOutlet } from '@angular/router';
+import { Moto } from './moto/moto';
 
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ RouterModule, RouterOutlet, FormsModule, PracticaComponente, CommonModule, HttpClientModule],
+  imports: [RouterModule, RouterOutlet, FormsModule, PracticaComponente, CommonModule, HttpClientModule, Moto],
   templateUrl: './app.html',
   styleUrls: ['./app.css']
 })
