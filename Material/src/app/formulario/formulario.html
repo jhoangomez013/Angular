@@ -1,0 +1,40 @@
+<section class="section-formulario">
+  <h2 class="titulo">Registro Usuarios</h2>
+
+<mat-card class="formulario-container">
+
+
+<form [formGroup]="miFormulario" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <mat-label>Nombre</mat-label>
+    <input matInput formControlName="nombre" placeholder="Nombre" type="text">
+    @if (miFormulario.get('nombre')?.invalid && miFormulario.get('nombre')?.touched) {
+      @if (miFormulario.get('nombre')?.errors?.['required']) {<mat-error>El nombre es obligatorio.</mat-error>}
+      @if (miFormulario.get('nombre')?.errors?.['minlength']) {<mat-error>El nombre debe tener al menos 2 caracteres.</mat-error>}
+    }
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" placeholder="Email" type="email">
+    @if (miFormulario.get('email')?.invalid && miFormulario.get('email')?.touched) {
+      @if (miFormulario.get('email')?.errors?.['required']) {<mat-error>El email es obligatorio.</mat-error>}
+      @if (miFormulario.get('email')?.errors?.['email']) {<mat-error>El email no es válido.</mat-error>}
+    }
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Username</mat-label>
+    <textarea matInput formControlName="mensaje" placeholder="Username"></textarea>
+    @if (miFormulario.get('mensaje')?.invalid && miFormulario.get('mensaje')?.touched) {
+      @if (miFormulario.get('mensaje')?.errors?.['required']) {<mat-error>El mensaje es obligatorio.</mat-error>}
+      @if (miFormulario.get('mensaje')?.errors?.['minlength']) {<mat-error>El mensaje debe tener al menos 6 caracteres.</mat-error>}
+    }
+  </mat-form-field>
+
+   <button mat-raised-button color="primary" type="submit">Enviar</button>
+</form>
+
+</mat-card>
+
+</section>

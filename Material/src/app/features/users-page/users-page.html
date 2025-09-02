@@ -1,0 +1,62 @@
+<section class="container">
+  <h2 class="titulo">Usuarios</h2>
+
+  <div *ngIf="vm$ | async as vm">
+    <div *ngIf="vm.loading" class="estado">Cargando...</div>
+
+    <div *ngIf="vm.error" class="estado error">
+      <p>Error: {{ vm.error }}</p>
+    </div>
+
+<mat-card *ngIf="!vm.loading && !vm.error && vm.data.length > 0" class="lista-card">
+  <mat-list>
+    <mat-list-item *ngFor="let user of vm.data" class="usuario-item" role="listitem">
+      <mat-icon matListIcon color="primary">person</mat-icon>
+      <div class="usuario-contenido">
+        <div class="usuario-nombre">{{ user.name }}</div>
+        <div class="usuario-detalles">
+          <span class="email">email: {{ user.email }} - </span>
+          <span class="username">username: {{ user.username }}</span>
+        </div>
+      </div>
+    </mat-list-item>
+  </mat-list>
+</mat-card>
+
+
+
+
+
+    <mat-card *ngIf="!vm.loading && !vm.error && vm.data.length === 0" class="lista-card">
+      <p>No hay usuarios disponibles.</p>
+    </mat-card>
+  </div>
+</section>
+
+
+
+<!-- 
+<section class="container">
+    <h2>Usuarios</h2>
+
+
+<div *ngIf="vm$ | async as vm">
+  <div *ngIf="vm.loading">Cargando...</div>
+
+  <div *ngIf="vm.error">
+    <p>Error: {{ vm.error }}</p>
+  </div>
+
+  <ul *ngIf="!vm.loading && !vm.error && vm.data.length > 0" class="user-list">
+    <li *ngFor="let user of vm.data">
+      {{ user.name }} ({{ user.email }}) - {{ user.username }}
+    </li>
+  </ul>
+
+  <div *ngIf="!vm.loading && !vm.error && vm.data.length === 0">
+    <p>No hay usuarios disponibles.</p> 
+  </div>
+</div>
+
+</section>
+-->

@@ -1,0 +1,16 @@
+<form [formGroup]="form" (ngSubmit)="onCreate()" class="card">
+    <h3>Nuevo Usuario (POST)</h3>
+
+    <label> Nombre:
+        <input formControlName="name" placeholder="Nombre" />
+    </label>
+    <label> Email:
+        <input formControlName="email" placeholder="Email" />
+    </label>
+    <label> Nombre de Usuario
+        <input formControlName="userName" placeholder="Nombre de usuario" />
+    </label>
+    <button type="submit" [disabled]="creating || form.valid">
+        {{creating ? 'Creando...' : 'Crear Usuario'}}
+    </button>
+</form>

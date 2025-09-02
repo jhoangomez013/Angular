@@ -1,0 +1,41 @@
+<mat-toolbar class="tb">
+  <span>Ejercicio Final</span>
+</mat-toolbar>
+
+
+<!-- bienvenida -->
+<mat-card style="margin: 20px;">
+  <mat-card-header>
+    <mat-card-title> {{ title }}</mat-card-title>
+    <mat-card-subtitle>Jhoan Sebastián Gómez Medina</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      Seleccione un botón si desea ver lista de usuario o agregar.
+    </p>
+  </mat-card-content>
+</mat-card>
+
+<!-- Botones -->
+<div style="margin: 20px;" class="button-group">
+  <button matButton='elevated' color="primary" routerLink="/users">
+    <mat-icon>group</mat-icon>
+    Usuarios!</button>
+
+  <button matButton='elevated' routerLink="/users/create">
+    <mat-icon>person_add</mat-icon>
+    Crear Usuarios!</button>
+
+      <button matButton='elevated' routerLink="/">
+    <mat-icon>home</mat-icon>
+    Inicio!</button>
+</div>
+
+<!--  rutas -->
+<router-outlet></router-outlet>
+
+<!-- Footer global -->
+<footer class="footer-global">
+  <p>© 2025 Aplicación Angular: Jhoan Sebastián Gómez Medina — Todos los derechos reservados</p>
+</footer>
+
